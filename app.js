@@ -1,7 +1,8 @@
+
+
+
 const apikey="330a61d10bba4f5a8fa1e7e34abc0c55";
-
 const url = "https://newsapi.org/v2/everything?q=";
-
 window.addEventListener("load", () => fetchNews("India"));
 
 function reload() {
@@ -9,9 +10,11 @@ function reload() {
 }
 
 async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${apikey}`);
+    const res = await fetch(`${url}${query} &from=2024-06-04&sortBy=publishedAt&apiKey=${apikey}`);
     const data = await res.json();
+    console.log(data);
     bindData(data.articles);
+
 }
 
 function bindData(articles) {
